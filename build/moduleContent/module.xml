@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modules>
+	<module>
+		<name>Rabbitmq</name>
+		<id>org.changchun.rabbitmq.Rabbitmq</id>
+		<version>0.1.0-SNAPSHOT</version>
+		<description>A short sentence describing what it does, but not much longer than this.</description>
+		<requiredIgnitionVersion>8.1.20</requiredIgnitionVersion>
+		<freeModule>false</freeModule>
+		<hook scope="G">org.changchun.rabbitmq.gateway.RabbitmqGatewayHook</hook>
+		<hook scope="D">org.changchun.rabbitmq.designer.RabbitmqDesignerHook</hook>
+		<requiredFrameworkVersion>8</requiredFrameworkVersion>
+		<jar scope="DG">amqp-client-5.21.0.jar</jar>
+		<jar scope="DG">slf4j-api-1.7.36.jar</jar>
+		<jar scope="DG">common-0.1.0-SNAPSHOT.jar</jar>
+		<jar scope="D">amqp-client-5.21.0.jar</jar>
+		<jar scope="D">slf4j-api-1.7.36.jar</jar>
+		<jar scope="D">designer-0.1.0-SNAPSHOT.jar</jar>
+		<jar scope="G">amqp-client-5.21.0.jar</jar>
+		<jar scope="G">slf4j-api-1.7.36.jar</jar>
+		<jar scope="G">gateway-0.1.0-SNAPSHOT.jar</jar>
+	</module>
+</modules>

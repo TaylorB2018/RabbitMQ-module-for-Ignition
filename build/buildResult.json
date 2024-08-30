@@ -1,0 +1,72 @@
+{
+    "moduleId": "org.changchun.rabbitmq.Rabbitmq",
+    "moduleName": "Rabbitmq",
+    "moduleDescription": "A short sentence describing what it does, but not much longer than this.",
+    "version": "0.1.0-SNAPSHOT",
+    "checksum": {
+        "checksum": "d877b74c90a4a8517cc41cbf1035ce17cbf04e9e611b31583f14198ef61e2e09",
+        "algorithm": "SHA256"
+    },
+    "fileName": "Rabbitmq.unsigned.modl",
+    "fileSize": 665811,
+    "artifacts": {
+        ":common": {
+            "projectPath": ":common",
+            "projectName": "common",
+            "scope": "DG",
+            "artifacts": [
+                {
+                    "id": "amqp-client-5.21.0.jar (com.rabbitmq:amqp-client:5.21.0)",
+                    "jarName": "amqp-client-5.21.0.jar"
+                },
+                {
+                    "id": "slf4j-api-1.7.36.jar (org.slf4j:slf4j-api:1.7.36)",
+                    "jarName": "slf4j-api-1.7.36.jar"
+                },
+                {
+                    "id": "rabbitmq:common:0.1.0-SNAPSHOT",
+                    "jarName": "common-0.1.0-SNAPSHOT.jar"
+                }
+            ]
+        },
+        ":designer": {
+            "projectPath": ":designer",
+            "projectName": "designer",
+            "scope": "D",
+            "artifacts": [
+                {
+                    "id": "amqp-client-5.21.0.jar (com.rabbitmq:amqp-client:5.21.0)",
+                    "jarName": "amqp-client-5.21.0.jar"
+                },
+                {
+                    "id": "slf4j-api-1.7.36.jar (org.slf4j:slf4j-api:1.7.36)",
+                    "jarName": "slf4j-api-1.7.36.jar"
+                },
+                {
+                    "id": "rabbitmq:designer:0.1.0-SNAPSHOT",
+                    "jarName": "designer-0.1.0-SNAPSHOT.jar"
+                }
+            ]
+        },
+        ":gateway": {
+            "projectPath": ":gateway",
+            "projectName": "gateway",
+            "scope": "G",
+            "artifacts": [
+                {
+                    "id": "amqp-client-5.21.0.jar (com.rabbitmq:amqp-client:5.21.0)",
+                    "jarName": "amqp-client-5.21.0.jar"
+                },
+                {
+                    "id": "slf4j-api-1.7.36.jar (org.slf4j:slf4j-api:1.7.36)",
+                    "jarName": "slf4j-api-1.7.36.jar"
+                },
+                {
+                    "id": "rabbitmq:gateway:0.1.0-SNAPSHOT",
+                    "jarName": "gateway-0.1.0-SNAPSHOT.jar"
+                }
+            ]
+        }
+    },
+    "metaInfo": {}
+}
