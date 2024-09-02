@@ -98,7 +98,6 @@ public class RabbitmqGatewayHook extends AbstractGatewayModuleHook {
     public Optional<String> getMountPathAlias() {
         return Optional.empty();
     }
-
     /**
      * @return {@code true} if this is a "free" module, i.e. it does not participate in the licensing system. This is
      * equivalent to the now defunct FreeModule attribute that could be specified in module.xml.
@@ -160,7 +159,7 @@ public class RabbitmqGatewayHook extends AbstractGatewayModuleHook {
     @Override
     public void initializeScriptManager(ScriptManager manager) {
         RabbitMQModule rabbitMQModule = new RabbitMQModule(context);
-        manager.addScriptModule("system.rabbitmq", rabbitMQModule);
+        manager.addScriptModule("system.rabbitmqG", rabbitMQModule);
         logger.info("RabbitMQModule initialized with GatewayContext.");
 
     }

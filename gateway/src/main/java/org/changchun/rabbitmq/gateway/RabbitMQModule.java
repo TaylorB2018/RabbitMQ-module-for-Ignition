@@ -7,6 +7,7 @@ import com.inductiveautomation.ignition.common.tags.model.SecurityContext;
 import com.inductiveautomation.ignition.common.tags.model.TagPath;
 import com.inductiveautomation.ignition.common.tags.model.TagProvider;
 import com.inductiveautomation.ignition.common.tags.paths.parser.TagPathParser;
+import com.inductiveautomation.ignition.designer.model.DesignerContext;
 import com.inductiveautomation.ignition.gateway.model.GatewayContext;
 import com.inductiveautomation.ignition.gateway.tags.model.GatewayTagManager;
 import com.rabbitmq.client.Channel;
@@ -27,12 +28,14 @@ public class RabbitMQModule {
     private GatewayContext context;
     private ExecutorService executorService;
 
+
     public RabbitMQModule(GatewayContext context) {
         this.context = context;
         this.executorService = Executors.newFixedThreadPool(10);
         ; // Create a single-thread pool
         logger.info("RabbitMQModule initialized with GatewayContext.");
     }
+
 
     public void startConsuming(String hostName, String queueName, String tagPath) {
         // Submit the consuming task to the ExecutorService
@@ -58,6 +61,9 @@ public class RabbitMQModule {
             logger.info("RabbitMQ connection established.");
 
             DeliverCallback deliverCallback = (consumerTag, delivery) -> {
+                if (Thread.currentThread().isInterrupted()) {
+                    return;
+                }
                 String message = new String(delivery.getBody(), "UTF-8");
                 logger.info(String.format("Message received from queue '%s': %s", queueName, message));
 
@@ -71,7 +77,12 @@ public class RabbitMQModule {
 
             // Keep the thread alive to listen for messages
             while (!Thread.currentThread().isInterrupted()) {
-                Thread.sleep(1000); // This keeps the thread alive without consuming too much CPU
+                try {
+                    Thread.sleep(1000); // Shorter sleep to check for interruption frequently
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt(); // Reset interrupted flag and break the loop
+                    break;
+                } // This keeps the thread alive without consuming too much CPU
             }
 
         } catch (Exception e) {
@@ -113,8 +124,19 @@ public class RabbitMQModule {
 
     public void shutdown() {
         if (executorService != null && !executorService.isShutdown()) {
-            executorService.shutdownNow(); // Shutdown the ExecutorService when needed
-            logger.info("RabbitMQModule shutdown.");
+            logger.info("Attempting to shutdown RabbitMQ module executor service.");
+
+            executorService.shutdownNow(); // Attempt to stop all actively executing tasks
+            try {
+                if (!executorService.awaitTermination(5, TimeUnit.SECONDS)) {
+                    logger.warning("Executor service did not terminate within the timeout.");
+                } else {
+                    logger.info("Executor service shut down gracefully.");
+                }
+            } catch (InterruptedException e) {
+                logger.log(Level.SEVERE, "Interrupted while waiting for shutdown.", e);
+                Thread.currentThread().interrupt();  // Preserve interrupt status
+            }
         }
     }
     public void start() {
@@ -125,7 +147,7 @@ public class RabbitMQModule {
 
         // Submit tasks to the new executor
         executorService.submit(() -> {
-            // Your task code here
+            // task code here don't know if I need to add code here
         });
     }
 }
