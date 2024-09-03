@@ -54,7 +54,8 @@ public class RabbitMQModule {
         String cool = System.getProperty("rabbitmq.username");
         ConnectionFactory factory = new ConnectionFactory();
         factory.setUsername(username);
-        factory.setHost(password);
+        factory.setPassword(password);
+        factory.setHost(hostName);
         factory.setVirtualHost(virtualHost);
 
         try (Connection connection = factory.newConnection();
