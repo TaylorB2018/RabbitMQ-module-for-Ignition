@@ -31,11 +31,11 @@ Use Gradle to build the project:
 ```
 ./gradlew build
 ```
-This will compile the source code and create the module .modl file in the build/libs/ directory.
+This will compile the source code and create the module .modl file 
 
 **# Installation**
 
-Once the module is built, locate the .modl file in the build/libs/ directory.
+Once the module is built, locate the .modl file.
 Log into the Ignition Gateway.
 Navigate to the Config tab and select Modules.
 Click Install or Upgrade a Module and upload the .modl file.
