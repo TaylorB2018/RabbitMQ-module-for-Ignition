@@ -31,15 +31,16 @@ Use Gradle to build the project:
 ```
 ./gradlew build
 ```
-This will compile the source code and create the module .modl file 
+This will compile the source code and create the module .modl file. The file will be located in your build folder.
 
 **# Installation**
 
-Once the module is built, locate the .modl file.
+Once the module is built, locate the .modl file inside the build directory.
 Log into the Ignition Gateway.
 Navigate to the Config tab and select Modules.
 Click Install or Upgrade a Module and upload the .modl file.
 After installation, configure the RabbitMQ settings in the Gateway.
+(Note: You need to allow unsigned modules and restart your Gateway before you can install the module)
 
 
 **# Usage**
