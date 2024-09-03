@@ -10,7 +10,9 @@ gateway/: Contains the gateway module that handles communication with RabbitMQ o
 
 **# Prerequisites**
 Ignition 8.x
+
 Java 11+
+
 RabbitMQ server instance
 
 
