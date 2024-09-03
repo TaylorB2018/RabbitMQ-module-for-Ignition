@@ -34,8 +34,10 @@ Log into the Ignition Gateway.
 Navigate to the Config tab and select Modules.
 Click Install or Upgrade a Module and upload the .modl file.
 After installation, configure the RabbitMQ settings in the Gateway.
+
+
 **# Usage**
-Currently this project has three methods you can call: start(), startConsuming(), and shutdown(). Currrently, everytime you want to start a new instance, you need to first call the start() method to intiate, then you can call the startConsuming() method with your information to begin consuming RabbitMQ messages and write the values to a tag. 
+Currently this project has three methods you can call: start(), startConsuming(), and shutdown(). Currrently, everytime you want to start a new instance, you need to first call the start() method to intiate, then you can call the startConsuming() method with your information to begin consuming RabbitMQ messages and write the values to a tag. Then if you want to start all instances in the current project, you just need to call the shutdown() method.
 
 startConsuming() requires the following parameters: 
 startConsuming(String hostName, String username, String password, String virtualHost, String queueName, String tagPath)
