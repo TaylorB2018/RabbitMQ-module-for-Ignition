@@ -7,7 +7,7 @@ import com.inductiveautomation.ignition.common.tags.model.SecurityContext;
 import com.inductiveautomation.ignition.common.tags.model.TagPath;
 import com.inductiveautomation.ignition.common.tags.model.TagProvider;
 import com.inductiveautomation.ignition.common.tags.paths.parser.TagPathParser;
-import com.inductiveautomation.ignition.designer.model.DesignerContext;
+//import com.inductiveautomation.ignition.designer.model.DesignerContext;
 import com.inductiveautomation.ignition.gateway.model.GatewayContext;
 import com.inductiveautomation.ignition.gateway.tags.model.GatewayTagManager;
 import com.rabbitmq.client.Channel;
@@ -25,7 +25,7 @@ import java.util.logging.Logger;
 
 public class RabbitMQModule {
     private static final Logger logger = Logger.getLogger(RabbitMQModule.class.getName());
-    private GatewayContext context;
+    private final GatewayContext context;
     private ExecutorService executorService;
 
 

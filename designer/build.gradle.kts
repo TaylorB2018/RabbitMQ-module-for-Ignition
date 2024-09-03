@@ -12,6 +12,7 @@ dependencies {
     compileOnly("com.inductiveautomation.ignitionsdk:designer-api:${rootProject.extra["sdk_version"]}")
     compileOnly("com.inductiveautomation.ignitionsdk:ignition-common:${rootProject.extra["sdk_version"]}")
     compileOnly(project(":common"))
+    compileOnly(project(":gateway"))
 
     // add designer scoped dependencies here
     modlImplementation("com.rabbitmq:amqp-client:5.21.0")
