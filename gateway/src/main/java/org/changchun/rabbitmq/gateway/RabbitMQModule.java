@@ -37,11 +37,11 @@ public class RabbitMQModule {
     }
 
 
-    public void startConsuming(String hostName, String queueName, String tagPath) {
+    public void startConsuming(String hostName, String username, String password, String virtualHost, String queueName, String tagPath) {
         // Submit the consuming task to the ExecutorService
         executorService.submit(() -> {
             try {
-                consumeMessage(hostName, queueName, tagPath);
+                consumeMessage(hostName, username, password, virtualHost, queueName, tagPath);
             } catch (Exception e) {
                 logger.log(Level.SEVERE, "Error during message consumption: ", e);
             }
@@ -49,11 +49,13 @@ public class RabbitMQModule {
     }
 
 
-    private void consumeMessage(String hostName, String queueName, String tagPath) throws Exception {
+    private void consumeMessage(String hostName, String username, String password, String virtualHost, String queueName, String tagPath) throws Exception {
         logger.info(String.format("Starting to consume messages from queue '%s' at host '%s'", queueName, hostName));
-
+        String cool = System.getProperty("rabbitmq.username");
         ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost(hostName);
+        factory.setUsername(username);
+        factory.setHost(password);
+        factory.setVirtualHost(virtualHost);
 
         try (Connection connection = factory.newConnection();
              Channel channel = connection.createChannel()) {

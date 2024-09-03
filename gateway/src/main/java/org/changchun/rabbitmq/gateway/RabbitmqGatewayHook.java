@@ -127,7 +127,7 @@ public class RabbitmqGatewayHook extends AbstractGatewayModuleHook {
      * Register any {@link ResourceTypeAdapter}s this module needs with with {@code registry}.
      * <p>
      * ResourceTypeAdapters are used to adapt a legacy (7.9 or prior) resource type name or payload into a nicer format
-     * for the Ignition 8.0 project resource system.Ò Only override this method for modules that aren't known by the
+     * for the Ignition 8.0 project resource system Only override this method for modules that aren't known by the
      * {@link ResourceTypeAdapterRegistry} already.
      * <p>
      * <b>This method is called before {@link #setup(GatewayContext)} or {@link #startup(LicenseState)}.</b>

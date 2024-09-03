@@ -13,8 +13,9 @@ plugins {
 val sdk_version by extra("8.1.20")
 
 allprojects {
-    version = "0.1.0-SNAPSHOT"
+    version = "0.2.0-SNAPSHOT"
 }
+
 
 ignitionModule {
     /*
@@ -36,7 +37,7 @@ ignitionModule {
      */
     moduleVersion.set("${project.version}")
 
-    moduleDescription.set("A short sentence describing what it does, but not much longer than this.")
+    moduleDescription.set("Module to allow the consumption of AMQP protocol messages through RabbitMQ.")
 
     /*
      * Minimum version of Ignition required for the module to function correctly.  This typically won't change over
@@ -116,3 +117,6 @@ ignitionModule {
      */
     skipModlSigning.set(true)
 }
+
+
+

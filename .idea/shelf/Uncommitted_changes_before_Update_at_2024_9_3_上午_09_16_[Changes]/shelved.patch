@@ -1,0 +1,19 @@
+Index: designer/build.gradle.kts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>plugins {\r\n    `java-library`\r\n}\r\n\r\njava {\r\n    toolchain {\r\n        languageVersion.set(org.gradle.jvm.toolchain.JavaLanguageVersion.of(11))\r\n    }\r\n}\r\n\r\ndependencies {\r\n    compileOnly(\"com.inductiveautomation.ignitionsdk:designer-api:${rootProject.extra[\"sdk_version\"]}\")\r\n    compileOnly(\"com.inductiveautomation.ignitionsdk:ignition-common:${rootProject.extra[\"sdk_version\"]}\")\r\n    compileOnly(project(\":common\"))\r\n\r\n    // add designer scoped dependencies here\r\n    modlImplementation(\"com.rabbitmq:amqp-client:5.21.0\")\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/designer/build.gradle.kts b/designer/build.gradle.kts
+--- a/designer/build.gradle.kts	(revision c97d4a2fc6eb2652241b63d8030435172d18469e)
++++ b/designer/build.gradle.kts	(date 1725324129722)
+@@ -12,6 +12,8 @@
+     compileOnly("com.inductiveautomation.ignitionsdk:designer-api:${rootProject.extra["sdk_version"]}")
+     compileOnly("com.inductiveautomation.ignitionsdk:ignition-common:${rootProject.extra["sdk_version"]}")
+     compileOnly(project(":common"))
++    // Add this line to include the gateway module
++    compileOnly(project(":gateway"))
+ 
+     // add designer scoped dependencies here
+     modlImplementation("com.rabbitmq:amqp-client:5.21.0")
