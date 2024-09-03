@@ -1,6 +1,6 @@
 **# RabbitMQ Module for Ignition**
 
-This project is a custom Ignition module that integrates RabbitMQ messaging capabilities into Ignition. The module includes features for both the designer and gateway scopes, allowing seamless integration with RabbitMQ for real-time messaging and event handling.
+This project is a custom Ignition module that integrates RabbitMQ messaging capabilities into Ignition. The module includes features for both the designer(not completed) and gateway scopes, allowing seamless integration with RabbitMQ for real-time messaging and event handling.
 
 **# Project Structure**
 
