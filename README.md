@@ -6,10 +6,14 @@ This project is a custom Ignition module that integrates RabbitMQ messaging capa
 
 designer/: Contains code specific to the Ignition Designer for configuring and interacting with RabbitMQ. (Currently uncompleted)
 gateway/: Contains the gateway module that handles communication with RabbitMQ on the Ignition Gateway.
+
+
 **# Prerequisites**
 Ignition 8.x
 Java 11+
 RabbitMQ server instance
+
+
 **# Build Instructions**
 Clone the repository:
 
