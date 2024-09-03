@@ -21,16 +21,16 @@ ignitionModule {
     /*
      * Human readable name of the module, as will be displayed on the gateway status page
      */
-    name.set("Rabbitmq")
+    name.set("RabbitMQModule")
 
     /*
      * Name of the '.modl' file to be created, without file extension.
      */
-    fileName.set("Rabbitmq")
+    fileName.set("RabbitMQModule")
     /*
      * Unique identifier for the module.  Reverse domain convention is recommended (e.g.: com.mycompany.charting-module)
      */
-    id.set("org.changchun.rabbitmq.Rabbitmq")
+    id.set("com.taylorb.rabbitmq.Rabbitmq")
 
     /*
      * Version of the module.  Here being set to the same version that gradle uses, up above in this file.
@@ -96,8 +96,8 @@ ignitionModule {
      * Example entry: "com.myorganization.vectorizer.VectorizerDesignerHook" to "D"
      */
     hooks.putAll(mapOf(
-        "org.changchun.rabbitmq.gateway.RabbitmqGatewayHook" to "G",
-        "org.changchun.rabbitmq.designer.RabbitmqDesignerHook" to "D"
+        "com.taylorb.rabbitmq.gateway.RabbitmqGatewayHook" to "G",
+        "com.taylorb.rabbitmq.designer.RabbitmqDesignerHook" to "D"
     ))
 
     /*

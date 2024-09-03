@@ -1,14 +1,14 @@
 {
-    "moduleId": "org.changchun.rabbitmq.Rabbitmq",
-    "moduleName": "Rabbitmq",
+    "moduleId": "com.taylorb.rabbitmq.Rabbitmq",
+    "moduleName": "RabbitMQModule",
     "moduleDescription": "Module to allow the consumption of AMQP protocol messages through RabbitMQ.",
     "version": "0.2.0-SNAPSHOT",
     "checksum": {
-        "checksum": "56f63655cb9b550a4e06471e96465dac1b730aaf1597ef9c5d8366ab7ad76aa1",
+        "checksum": "405b096b45e771c91e84431e2060142fd26680ad960b7a37c77135a557080d44",
         "algorithm": "SHA256"
     },
-    "fileName": "Rabbitmq.unsigned.modl",
-    "fileSize": 666590,
+    "fileName": "RabbitMQModule.unsigned.modl",
+    "fileSize": 666579,
     "artifacts": {
         ":common": {
             "projectPath": ":common",
