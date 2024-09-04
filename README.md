@@ -1,6 +1,6 @@
 **# RabbitMQ Module for Ignition**
 
-This project is a custom Ignition module that integrates RabbitMQ messaging capabilities into Ignition. The module includes features for both the designer and gateway scopes, allowing seamless integration with RabbitMQ for real-time messaging and event handling.
+This project is a custom Ignition module that integrates RabbitMQ messaging capabilities into Ignition. The module includes features for both the designer(not completed) and gateway scopes, allowing seamless integration with RabbitMQ for real-time messaging and event handling.
 
 **# Project Structure**
 
@@ -31,19 +31,20 @@ Use Gradle to build the project:
 ```
 ./gradlew build
 ```
-This will compile the source code and create the module .modl file in the build/libs/ directory.
+This will compile the source code and create the module .modl file. The file will be located in your build folder.
 
 **# Installation**
 
-Once the module is built, locate the .modl file in the build/libs/ directory.
+Once the module is built, locate the .modl file inside the build directory.
 Log into the Ignition Gateway.
 Navigate to the Config tab and select Modules.
 Click Install or Upgrade a Module and upload the .modl file.
 After installation, configure the RabbitMQ settings in the Gateway.
+(Note: You need to allow unsigned modules and restart your Gateway before you can install the module)
 
 
 **# Usage**
-Currently this project has three methods you can call: start(), startConsuming(), and shutdown(). Currrently, everytime you want to start a new instance, you need to first call the start() method to intiate, then you can call the startConsuming() method with your information to begin consuming RabbitMQ messages and write the values to a tag. Then if you want to start all instances in the current project, you just need to call the shutdown() method.
+Currently this project has three methods you can call: start(), startConsuming(), and shutdown(). Currrently, everytime you want to start a new instance, you need to first call the start() method to intiate, then you can call the startConsuming() method with your information to begin consuming RabbitMQ messages and writing the values to a tag. Then if you want to stop all instances in the current project, you just need to call the shutdown() method.
 
 startConsuming() requires the following parameters: 
 startConsuming(String hostName, String username, String password, String virtualHost, String queueName, String tagPath)
