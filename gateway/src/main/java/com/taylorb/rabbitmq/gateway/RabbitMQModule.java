@@ -22,6 +22,10 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
 
 public class RabbitMQModule {
     private static final Logger logger = Logger.getLogger(RabbitMQModule.class.getName());
@@ -32,11 +36,12 @@ public class RabbitMQModule {
     public RabbitMQModule(GatewayContext context) {
         this.context = context;
         this.executorService = Executors.newFixedThreadPool(10);
-        ; // Create a single-thread pool
+         // Create a single-thread pool
         logger.info("RabbitMQModule initialized with GatewayContext.");
     }
 
 
+    // This is if you do not wish to use an external file and just want to directly write your credentials
     public void startConsuming(String hostName, String username, String password, String virtualHost, String queueName, String tagPath) {
         // Submit the consuming task to the ExecutorService
         executorService.submit(() -> {
@@ -51,7 +56,6 @@ public class RabbitMQModule {
 
     private void consumeMessage(String hostName, String username, String password, String virtualHost, String queueName, String tagPath) throws Exception {
         logger.info(String.format("Starting to consume messages from queue '%s' at host '%s'", queueName, hostName));
-        String cool = System.getProperty("rabbitmq.username");
         ConnectionFactory factory = new ConnectionFactory();
         factory.setUsername(username);
         factory.setPassword(password);
@@ -153,4 +157,51 @@ public class RabbitMQModule {
             // task code here don't know if I need to add code here
         });
     }
+    // TODO: finish the code here
+    public void exchangeDeclare(String exchangeName, String exchangeType, Boolean autoDelete){
+
+    }
+
+    //If you would like to make use an external file to keep credentials
+    private Properties loadProperties() throws IOException {
+        Properties properties = new Properties();
+        try (InputStream input = test.class.getClassLoader().getResourceAsStream("config.properties")) {  // this is where you add the path to external file, just put the file in the resources dir before building
+            properties.load(input);
+        }
+        return properties;
+    }
+
+    private String getRabbitMQUsername(Properties properties) {
+        return properties.getProperty("rabbitmq.username");
+    }
+
+    private String getRabbitMQPassword(Properties properties) {
+        return properties.getProperty("rabbitmq.password");
+    }
+
+    private String getRabbitMQVirtualHost(Properties properties) {return properties.getProperty("rabbitmq.virtualHost");}
+
+
+    // Overloaded function in case you make use of an external file
+
+    public void startConsuming(String hostName, String queueName, String tagPath) throws IOException {
+        // Submit the consuming task to the ExecutorService
+
+            Properties properties = loadProperties();
+
+            String username = getRabbitMQUsername(properties);
+            String password = getRabbitMQPassword(properties);
+            String virtualHost = getRabbitMQVirtualHost(properties);
+
+            // Use these credentials in your RabbitMQ setup
+
+        executorService.submit(() -> {
+            try {
+                consumeMessage(hostName, username, password, virtualHost, queueName, tagPath);
+            } catch (Exception e) {
+                logger.log(Level.SEVERE, "Error during message consumption: ", e);
+            }
+        });
+    }
+
 }
