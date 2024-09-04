@@ -50,7 +50,7 @@ Currently this project has three methods you can call: start(), startConsuming()
 startConsuming() requires the following parameters: 
 startConsuming(String hostName, String username, String password, String virtualHost, String queueName, String tagPath)
 
-**# Ading credentials through an external file**
+**# Adding credentials through an external file**
 
 If you would like to be able to have your credentials ready to use after building the module without the need to input them as parameters manually, you just need to add a resource directory to gateway/src/main and then put a config.properties file inside. In the properties file, you will write the following three lines to the file:
 rabbitmq.username=<your_username>
