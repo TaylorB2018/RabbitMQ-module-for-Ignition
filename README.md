@@ -59,4 +59,6 @@ rabbitmq.virtualHost=<your_vh>
 
 With this information the use is exactly the same except when you call the startConsuming() method you will only need 3 parameters: String hostName, String queuename, String tagPath
 
-If you'd like to contribute, feel free to fork the repository and submit a pull request with your changes. Any feedback anyone can provide would be greatly appreciated.
+
+**# Contribution**
+If you'd like to contribute, feel free to fork the repository and submit a pull request with your changes. Any feedback anyone can provide would be greatly appreciated. If you have any issues or need help feel free to reach out and I'll see what I can do.
