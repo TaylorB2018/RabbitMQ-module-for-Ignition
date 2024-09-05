@@ -50,6 +50,15 @@ Currently this project has three methods you can call: start(), startConsuming()
 startConsuming() requires the following parameters: 
 startConsuming(String hostName, String username, String password, String virtualHost, String queueName, String tagPath)
 
+
+In addition to being able to assign the consumed value of the message to a tag, users also have the ability to assign the value to a variable.
+
+**First**:
+You need to use the startConsumingReturnMessage() method when you begin consuming ( Currently this is only supported if you first provide a properties file with your RabbitMQ information)
+**Second**:
+You then need to call the returnMessage() method which returns messages in a FIFO(Stack) fashion and assign it to a variable.
+
+
 **# Adding credentials through an external file**
 
 If you would like to be able to have your credentials ready to use after building the module without the need to input them as parameters manually, you just need to add a resource directory to gateway/src/main and then put a config.properties file inside. In the properties file, you will write the following three lines to the file:
