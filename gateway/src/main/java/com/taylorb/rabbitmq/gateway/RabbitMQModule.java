@@ -165,7 +165,7 @@ public class RabbitMQModule {
     //If you would like to make use an external file to keep credentials
     private Properties loadProperties() throws IOException {
         Properties properties = new Properties();
-        try (InputStream input = test.class.getClassLoader().getResourceAsStream("config.properties")) {  // this is where you add the path to external file, just put the file in the resources dir before building
+        try (InputStream input = RabbitMQModule.class.getClassLoader().getResourceAsStream("config.properties")) {  // this is where you add the path to external file, just put the file in the resources dir before building
             properties.load(input);
         }
         return properties;
