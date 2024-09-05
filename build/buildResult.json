@@ -4,11 +4,11 @@
     "moduleDescription": "Module to allow the consumption of AMQP protocol messages through RabbitMQ.",
     "version": "0.2.0-SNAPSHOT",
     "checksum": {
-        "checksum": "b1fbbddebe05310522f181daae1c3371924b0b302374629cebdf37d2f5811d3e",
+        "checksum": "a1c28f58d3285152bf032f68dde0365bed6ee686bb0dafc0699e2d2226977ef5",
         "algorithm": "SHA256"
     },
     "fileName": "RabbitMQModule.unsigned.modl",
-    "fileSize": 668466,
+    "fileSize": 669472,
     "artifacts": {
         ":common": {
             "projectPath": ":common",
