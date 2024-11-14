@@ -48,7 +48,9 @@ After installation, configure the RabbitMQ settings in the Gateway.
 Currently this project has three methods you can call: start(), startConsuming(), and shutdown(). Currrently, everytime you want to start a new instance, you need to first call the start() method to intiate, then you can call the startConsuming() method with your information to begin consuming RabbitMQ messages and writing the values to a tag. Then if you want to stop all instances in the current project, you just need to call the shutdown() method.
 
 startConsuming() requires the following parameters: 
+```
 startConsuming(String hostName, String username, String password, String virtualHost, String queueName, String tagPath)
+```
 
 
 In addition to being able to assign the consumed value of the message to a tag, users also have the ability to assign the value to a variable.
