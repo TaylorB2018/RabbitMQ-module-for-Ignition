@@ -62,10 +62,11 @@ You then need to call the returnMessage() method which returns messages in a FIF
 # Adding credentials through an external file
 
 If you would like to be able to have your credentials ready to use after building the module without the need to input them as parameters manually, you just need to add a resource directory to gateway/src/main and then put a config.properties file inside. In the properties file, you will write the following three lines to the file:
+```
 rabbitmq.username=<your_username>
 rabbitmq.password=<your_password>
 rabbitmq.virtualHost=<your_vh>
-
+```
 With this information the use is exactly the same except when you call the startConsuming() method you will only need 3 parameters: String hostName, String queuename, String tagPath
 
 
